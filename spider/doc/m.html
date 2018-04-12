@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+ <head> 
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="renderer" content="webkit"> 
+  <title>O2O会员通::Bug - 禅道</title> 
+  <script>var config={"webRoot":"\/","cookieLife":30,"requestType":"PATH_INFO","pathType":"clean","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/theme\/","currentModule":"bug","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","router":"\/index.php\/bug-browse-13-byModule-125.html","timeout":30000};
+var lang={"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+
+</script> 
+  <script src="/js/all.js?v=7.2.4"></script> 
+  <link rel="stylesheet" href="/theme/default/zh-cn.default.css?v=7.2.4" type="text/css" media="screen"> 
+  <style>.ke-toolbar .ke-outline[data-name='savetemplate'] {display: none}
+#modulemenu .nav #dropMenu #searchResult .closed{text-decoration:none;}
+.closed, .closed a{color:gray; text-decoration:line-through;}
+.resolved, .resolved a{color:#8EC21F; text-decoration:none;}
+.tree .closed, .tree .closed a{color:#003366; text-decoration:none;}
+.confirm0 {color:gray;  font-size:9px}
+.confirm1 {color:green; font-size:9px}
+.red{color:red;}
+
+.assign-menu {min-width: 150px; overflow: hidden; max-height: 305px}
+.assign-menu.with-search {padding-bottom: 34px;}
+.assign-menu > .assign-search {padding: 0; position: absolute; z-index: 0; bottom: 0; left: 0; right: 0}
+.assign-menu > .assign-search .input-group-addon {position: absolute; right: 10px; top: 0; z-index: 10; background: none; border: none; color: #666}
+</style>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> 
+  <!--[if lt IE 9]>
+<script src='/js/html5shiv/min.js?v=1444893281'></script>
+<script src='/js/respond/min.js?v=1444893281'></script>
+<![endif]--> 
+  <!--[if lt IE 10]>
+<script src='/js/jquery/placeholder/min.js?v=1444893281'></script>
+<![endif]--> 
+ </head> 
+ <body> 
+  <script> 
+noResultsMatch       = '没有匹配结果';
+chooseUsersToMail    = '选择要发信通知的用户...';
+defaultChosenOptions = {no_results_text: noResultsMatch, width:'100%', allow_single_deselect: true, disable_search_threshold: 1, placeholder_text_single: ' ', placeholder_text_multiple: ' ', search_contains: true};
+$(document).ready(function()
+{
+    $("#mailto").attr('data-placeholder', chooseUsersToMail);
+    $("#mailto, .chosen, #productID").each(function()
+    {
+        var $this = $(this);
+        if($this.offset().top + 240 > $(document.body).height())
+        {
+            $this.attr('data-css-class', 'chosen-up');
+        }
+    }).chosen(defaultChosenOptions);
+});
+</script> 
+  <header id="header"> 
+   <div id="topbar"> 
+    <div class="pull-right" id="topnav">
+     <div class="dropdown" id="userMenu">
+      <a href="javascript:;" data-toggle="dropdown"><i class="icon-user"></i> 郑乾业 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li><a href="/my-profile.html?onlybody=yes" target="" class="iframe" data-width="600">个人档案</a> </li>
+       <li><a href="/my-changepassword.html?onlybody=yes" target="" class="iframe" data-width="500">更改密码</a> </li>
+       <li class="divider"></li>
+       <li class="dropdown-submenu left"><a href="javascript:;">主题</a>
+        <ul class="dropdown-menu">
+         <li class="theme-option active"><a href="javascript:selectTheme(&quot;default&quot;);" data-value="default">默认</a></li>
+         <li class="theme-option"><a href="javascript:selectTheme(&quot;green&quot;);" data-value="green">绿色</a></li>
+         <li class="theme-option"><a href="javascript:selectTheme(&quot;red&quot;);" data-value="red">红色</a></li>
+         <li class="theme-option"><a href="javascript:selectTheme(&quot;lightblue&quot;);" data-value="lightblue">亮蓝</a></li>
+         <li class="theme-option"><a href="javascript:selectTheme(&quot;blackberry&quot;);" data-value="blackberry">黑莓</a></li>
+        </ul></li>
+       <li class="dropdown-submenu left"><a href="javascript:;">Language</a>
+        <ul class="dropdown-menu">
+         <li class="lang-option active"><a href="javascript:selectLang(&quot;zh-cn&quot;);" data-value="zh-cn">简体</a></li>
+         <li class="lang-option"><a href="javascript:selectLang(&quot;zh-tw&quot;);" data-value="zh-tw">繁體</a></li>
+         <li class="lang-option"><a href="javascript:selectLang(&quot;en&quot;);" data-value="en">English</a></li>
+        </ul></li>
+      </ul>
+     </div>
+     <a href="/user-logout.html">退出</a> 
+     <a href="/misc-about.html" target="" class="about iframe" data-width="900" data-headerless="true" data-class="modal-about">关于</a> 
+    </div> 
+    <h5 id="companyname"> plateno项目管理系统 </h5> 
+   </div> 
+   <nav id="mainmenu"> 
+    <ul class="nav"> 
+     <li><a href="/my/" id="menumy"><i class="icon-home"></i><span> 我的地盘</span></a></li> 
+     <li><a href="/product/" id="menuproduct">产品</a></li> 
+     <li><a href="/project/" id="menuproject">项目</a></li> 
+     <li class="active"><a href="/qa/" class="active" id="menuqa">测试</a></li> 
+     <li><a href="/doc/" id="menudoc">文档</a></li> 
+     <li><a href="/report/" id="menureport">统计</a></li> 
+     <li><a href="/company/" id="menucompany">组织</a></li> 
+    </ul> 
+    <div class="input-group input-group-sm" id="searchbox">
+     <div class="input-group-btn" id="typeSelector">
+      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><span id="searchTypeName">Bug</span> <span class="caret"></span></button>
+      <input type="hidden" name="searchType" id="searchType" value="bug"> 
+      <ul class="dropdown-menu">
+       <li><a href="javascript:;" data-value="bug">Bug</a></li>
+       <li><a href="javascript:;" data-value="story">需求</a></li>
+       <li><a href="javascript:;" data-value="task">任务</a></li>
+       <li><a href="javascript:;" data-value="testcase">用例</a></li>
+       <li><a href="javascript:;" data-value="project">项目</a></li>
+       <li><a href="javascript:;" data-value="product">产品</a></li>
+       <li><a href="javascript:;" data-value="user">用户</a></li>
+       <li><a href="javascript:;" data-value="build">版本</a></li>
+       <li><a href="javascript:;" data-value="release">发布</a></li>
+       <li><a href="javascript:;" data-value="productplan">产品计划</a></li>
+       <li><a href="javascript:;" data-value="testtask">测试版本</a></li>
+       <li><a href="javascript:;" data-value="doc">文档</a></li>
+      </ul>
+     </div>
+     <input type="text" name="searchQuery" id="searchQuery" value="" onclick="this.value=&quot;&quot;" onkeydown="if(event.keyCode==13) shortcut()" class="form-control" placeholder="编号(ctrl+g)"> 
+     <div id="objectSwitcher" class="input-group-btn">
+      <a href="javascript:shortcut();" class="btn">GO! </a>
+     </div>
+    </div> 
+   </nav> 
+   <nav id="modulemenu"> 
+    <ul class="nav"> 
+     <li><a id="currentItem" href="javascript:showDropMenu('product', '13', 'bug', 'browse', '')">O2O会员通 <span class="icon-caret-down"></span></a>
+      <div id="dropMenu">
+       <i class="icon icon-spin icon-spinner"></i>
+      </div></li> 
+     <li class=" active"><a href="/bug-browse-13.html" target="" id="submenubug">Bug</a> </li> 
+     <li class=" "><a href="/testcase-browse-13.html" target="" id="submenutestcase">用例</a> </li> 
+     <li class=" "><a href="/testtask-browse-13.html" target="" id="submenutesttask">版本</a> </li> 
+    </ul> 
+   </nav> 
+  </header> 
+  <div id="wrap"> 
+   <div class="outer"> 
+    <script language="javascript">$(function() { $(".tree").treeview({ persist: "cookie", collapsed: true, unique: false}) })</script> 
+    <script>browseType = "bymodule"
+</script> 
+    <script>moduleID = 125
+</script> 
+    <div id="featurebar"> 
+     <ul class="nav"> 
+      <li id="unclosedTab"><a href="/bug-browse-13-unclosed-0.html">未关闭</a> </li>
+      <li id="allTab"><a href="/bug-browse-13-all-0-assignedTo_desc-0-200.html">所有</a> </li>
+      <li id="assigntomeTab"><a href="/bug-browse-13-assignToMe-0.html">指派给我</a> </li>
+      <li id="openedbymeTab"><a href="/bug-browse-13-openedByMe-0.html">由我创建</a> </li>
+      <li id="resolvedbymeTab"><a href="/bug-browse-13-resolvedByMe-0.html">由我解决</a> </li>
+      <li id="unconfirmedTab"><a href="/bug-browse-13-unconfirmed-0.html">未确认</a> </li>
+      <li id="assigntonullTab"><a href="/bug-browse-13-assignToNull-0.html">未指派</a> </li>
+      <li id="unresolvedTab"><a href="/bug-browse-13-unResolved-0.html">未解决</a> </li>
+      <li id="longlifebugsTab"><a href="/bug-browse-13-longLifeBugs-0.html">久未处理</a> </li>
+      <li id="postponedbugsTab"><a href="/bug-browse-13-postponedBugs-0.html">被延期</a> </li>
+      <li id="needconfirmTab"><a href="/bug-browse-13-needconfirm-0.html">需求变动</a> </li>
+      <li id="bysearchTab"><a href="#"><i class="icon-search icon"></i>&nbsp;搜索</a></li> 
+     </ul> 
+     <div class="actions"> 
+      <div class="btn-group"> 
+       <div class="btn-group"> 
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <i class="icon-download-alt"></i> 导出 <span class="caret"></span> </button> 
+        <ul class="dropdown-menu" id="exportActionMenu"> 
+         <li><a href="/bug-export-13-assignedTo_desc.html" target="" class="export">导出数据</a> </li> 
+        </ul> 
+       </div> 
+       <div class="btn-group"> 
+        <a href="/bug-report-13-bymodule-125.html" target="" class="btn "><i class="icon-common-report icon-bar-chart"></i> 报表</a> 
+       </div> 
+      </div> 
+      <div class="btn-group"> 
+       <a href="/bug-batchCreate-13-0-125.html" target="" class="btn "><i class="icon-bug-batchCreate icon-plus-sign"></i> 批量添加</a> 
+       <a href="/bug-create-13-moduleID=125.html" target="" class="btn "><i class="icon-bug-create icon-plus"></i> 提Bug</a> 
+      </div> 
+     </div> 
+     <div id="querybox" class=""></div> 
+    </div> 
+    <div class="side" id="treebox"> 
+     <a class="side-handle" data-id="bugTree"><i class="icon-caret-left"></i></a> 
+     <div class="side-body"> 
+      <div class="panel panel-sm"> 
+       <div class="panel-heading nobr"> 
+        <i class="icon-cube"></i> 
+        <strong>O2O会员通</strong> 
+       </div> 
+       <div class="panel-body"> 
+        <ul class="tree">
+         <li><a href="/bug-browse-13-byModule-100.html" id="module100">web版V1.0</a> </li> 
+         <li><a href="/bug-browse-13-byModule-101.html" id="module101">android版V1.2</a> </li> 
+         <li><a href="/bug-browse-13-byModule-104.html" id="module104">发布会签到版本</a> </li> 
+         <li><a href="/bug-browse-13-byModule-102.html" id="module102">v1.2-patch-log 版本</a> </li> 
+         <li><a href="/bug-browse-13-byModule-125.html" id="module125">android机V1.3</a> </li> 
+         <li><a href="/bug-browse-13-byModule-140.html" id="module140">V1.3 修复版本</a> </li> 
+         <li><a href="/bug-browse-13-byModule-141.html" id="module141">android机V1.4</a> </li> 
+         <li><a href="/bug-browse-13-byModule-142.html" id="module142">iOS机V1.4</a> </li> 
+         <li><a href="/bug-browse-13-byModule-191.html" id="module191">android机V1.5</a> </li> 
+         <li><a href="/bug-browse-13-byModule-192.html" id="module192">iOS机V1.5</a> </li> 
+         <li><a href="/bug-browse-13-byModule-404.html" id="module404">IOS-V2.0</a> </li> 
+         <li><a href="/bug-browse-13-byModule-406.html" id="module406">android-V2.0</a> </li> 
+         <li><a href="/bug-browse-13-byModule-430.html" id="module430">android-V2.1</a> </li> 
+         <li><a href="/bug-browse-13-byModule-431.html" id="module431">IOS-V2.1</a> </li> 
+        </ul> 
+        <div class="text-right"> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="main"> 
+     <form method="post"> 
+      <table class="table table-condensed table-hover table-striped tablesorter table-fixed" id="bugList"> 
+       <thead> 
+        <tr> 
+         <th class="w-id"> 
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-id_asc-52-20.html">ID</a> 
+          </div></th> 
+         <th class="w-severity"> 
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-severity_asc-52-20.html">级别</a> 
+          </div></th> 
+         <th class="w-pri"> 
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-pri_asc-52-20.html">P</a> 
+          </div></th> 
+         <th> 
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-title_asc-52-20.html">Bug标题</a> 
+          </div></th> 
+         <th class="w-80px">
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-status_asc-52-20.html">状态</a> 
+          </div></th> 
+         <th class="w-user">
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-openedBy_asc-52-20.html">创建</a> 
+          </div></th> 
+         <th class="w-date">
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-openedDate_asc-52-20.html">创建日期</a> 
+          </div></th> 
+         <th class="w-user">
+          <div class="headerSortUp">
+           <a href="/bug-browse-13-bymodule-125-assignedTo_asc-52-20.html">指派</a> 
+          </div></th> 
+         <th class="w-user">
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-resolvedBy_asc-52-20.html">解决</a> 
+          </div></th> 
+         <th class="w-resolution">
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-resolution_asc-52-20.html">方案</a> 
+          </div></th> 
+         <th class="w-date">
+          <div class="header">
+           <a href="/bug-browse-13-bymodule-125-resolvedDate_asc-52-20.html">解决日期</a> 
+          </div></th> 
+         <th class="w-140px {sorter:false}">操作</th> 
+        </tr> 
+       </thead> 
+       <tbody> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1554"> <a href="/bug-view-1554.html">1554</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="V1.2版本，扫码页面图片显示异常，兼容问题"><span class="confirm1">[已确认] </span><a href="/bug-view-1554.html">V1.2版本，扫码页面图片显示异常，兼容问题</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-24 10:08</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-24 11:34</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1554.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1554.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1554.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1547"> <a href="/bug-view-1547.html">1547</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="新会员领取法宝时，提示系统错误"><span class="confirm1">[已确认] </span><a href="/bug-view-1547.html">新会员领取法宝时，提示系统错误</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-23 12:53</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-23 16:07</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1547.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1547.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1547.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1530"> <a href="/bug-view-1530.html">1530</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="新会员（发展时未填身份证）领取法宝页面姓名和身份证号未自动带入显示"><span class="confirm1">[已确认] </span><a href="/bug-view-1530.html">新会员（发展时未填身份证）领取法宝页面姓名和身份证号未自动带入显示</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-22 16:50</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-23 17:45</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1530.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1530.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1530.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1528"> <a href="/bug-view-1528.html">1528</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="后台报错调用是否可以添加法宝接口异常"><span class="confirm1">[已确认] </span><a href="/bug-view-1528.html">后台报错调用是否可以添加法宝接口异常</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-22 16:45</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-23 09:46</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1528.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1528.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1528.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1522"> <a href="/bug-view-1522.html">1522</a> </td> 
+         <td><span class="severity一般">一般</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="分店所属品牌未配置法宝，新会员扫码页面显示null，建议特殊处理"><span class="confirm1">[已确认] </span><a href="/bug-view-1522.html">分店所属品牌未配置法宝，新会员扫码页面显示null，建议特殊处理</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-22 15:04</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-23 09:45</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1522.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1522.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1522.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1521"> <a href="/bug-view-1521.html">1521</a> </td> 
+         <td><span class="severity一般">一般</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="领取法宝时已完善的身份证号，再次打开领取页面，建议更新显示已完善的身份证号、姓名"><span class="confirm1">[已确认] </span><a href="/bug-view-1521.html">领取法宝时已完善的身份证号，再次打开领取页面，建议更新显示已完善的身份证号、姓名</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-22 14:34</td> 
+         <td>Closed</td> 
+         <td>张帆</td> 
+         <td>已解决</td> 
+         <td>12-22 15:23</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1521.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1521.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1521.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1520"> <a href="/bug-view-1520.html">1520</a> </td> 
+         <td><span class="severity一般">一般</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="已领取法宝的，领取页面建议不可编辑姓名和身份证号"><span class="confirm1">[已确认] </span><a href="/bug-view-1520.html">已领取法宝的，领取页面建议不可编辑姓名和身份证号</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-22 14:32</td> 
+         <td>Closed</td> 
+         <td>张帆</td> 
+         <td>已解决</td> 
+         <td>12-22 15:23</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1520.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1520.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1520.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1519"> <a href="/bug-view-1519.html">1519</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="新发展会员不带身份证，填写身份证领取法宝后，再次点开领取链接地址，还可以再输入身份证（应自动更新数据）"><span class="confirm1">[已确认] </span><a href="/bug-view-1519.html">新发展会员不带身份证，填写身份证领取法宝后，再次点开领取链接地址，还可以再输入身份证（应自动更新数据）</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-22 14:03</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-22 15:28</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1519.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1519.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1519.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1512"> <a href="/bug-view-1512.html">1512</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="新发展带身份证会员，领取法宝，点击领取时弹窗提示已领取过（实际未领取）"><span class="confirm1">[已确认] </span><a href="/bug-view-1512.html">新发展带身份证会员，领取法宝，点击领取时弹窗提示已领取过（实际未领取）</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-22 10:17</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-22 15:27</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1512.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1512.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1512.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1499"> <a href="/bug-view-1499.html">1499</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="已领取新会员法宝权益后再次打开领法宝链接地址，还可再次输入姓名点击领取"><span class="confirm1">[已确认] </span><a href="/bug-view-1499.html">已领取新会员法宝权益后再次打开领法宝链接地址，还可再次输入姓名点击领取</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-21 14:26</td> 
+         <td>Closed</td> 
+         <td>张帆</td> 
+         <td>已解决</td> 
+         <td>12-21 16:25</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1499.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1499.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1499.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1496"> <a href="/bug-view-1496.html">1496</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="发展新会员未输入身份证，领取法宝时填写了身份证号，数据未写入`t_o2omember`表member_idno字段"><span class="confirm1">[已确认] </span><a href="/bug-view-1496.html">发展新会员未输入身份证，领取法宝时填写了身份证号，数据未写入`t_o2omember`表member_idno字段</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-21 14:21</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-21 15:32</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1496.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1496.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1496.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1494"> <a href="/bug-view-1494.html">1494</a> </td> 
+         <td><span class="severity一般">一般</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="公告未读消息数及时更新问题"><span class="confirm1">[已确认] </span><a href="/bug-view-1494.html">公告未读消息数及时更新问题</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-21 12:57</td> 
+         <td>Closed</td> 
+         <td>付禄山</td> 
+         <td>已解决</td> 
+         <td>12-22 15:55</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1494.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1494.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1494.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1489"> <a href="/bug-view-1489.html">1489</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="发展新会员时未填写身份证，领取法宝的时候填写了身份证（会员资料页面身份证更新），`o2omember`.`t_seller_members_day`表未统计为有效会员"><span class="confirm1">[已确认] </span><a href="/bug-view-1489.html">发展新会员时未填写身份证，领取法宝的时候填写了身份证（会员资料页面身份证更新），`o2omember`.`t_seller_members_day`表未统计为有效会员</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-21 11:41</td> 
+         <td>Closed</td> 
+         <td>崔灵</td> 
+         <td>已解决</td> 
+         <td>12-21 12:11</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1489.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1489.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1489.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1488"> <a href="/bug-view-1488.html">1488</a> </td> 
+         <td><span class="severity一般">一般</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="领取体验券页面title，需求变更需改成领取法宝，新会员微信模板消息同（体验券-->法宝）"><span class="confirm1">[已确认] </span><a href="/bug-view-1488.html">领取体验券页面title，需求变更需改成领取法宝，新会员微信模板消息同（体验券--&gt;法宝）</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-21 11:05</td> 
+         <td>Closed</td> 
+         <td>张帆</td> 
+         <td>已解决</td> 
+         <td>12-21 16:25</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1488.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1488.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1488.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1487"> <a href="/bug-view-1487.html">1487</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="发展新会员填写了身份证号并保存成功，微信领取法宝页面，自动带入的身份证号提示已注册"><span class="confirm1">[已确认] </span><a href="/bug-view-1487.html">发展新会员填写了身份证号并保存成功，微信领取法宝页面，自动带入的身份证号提示已注册</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-21 11:02</td> 
+         <td>Closed</td> 
+         <td>张帆</td> 
+         <td>已解决</td> 
+         <td>12-21 16:25</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1487.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1487.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1487.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1486"> <a href="/bug-view-1486.html">1486</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="注册的新会员，未修改自动带入的姓名，领取体验券，按钮无法点击"><span class="confirm1">[已确认] </span><a href="/bug-view-1486.html">注册的新会员，未修改自动带入的姓名，领取体验券，按钮无法点击</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-21 10:57</td> 
+         <td>Closed</td> 
+         <td>张帆</td> 
+         <td>已解决</td> 
+         <td>12-21 16:24</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1486.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1486.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1486.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1482"> <a href="/bug-view-1482.html">1482</a> </td> 
+         <td><span class="severity一般">一般</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="优惠券领取页面，身份证号已注册，提示语乱码问题"><span class="confirm1">[已确认] </span><a href="/bug-view-1482.html">优惠券领取页面，身份证号已注册，提示语乱码问题</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-19 17:39</td> 
+         <td>Closed</td> 
+         <td>张帆</td> 
+         <td>已解决</td> 
+         <td>12-21 09:41</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1482.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1482.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1482.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1481"> <a href="/bug-view-1481.html">1481</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="新会员领取优惠券成功，法宝数据表已到账，接口和客户端法宝数据未更新"><span class="confirm1">[已确认] </span><a href="/bug-view-1481.html">新会员领取优惠券成功，法宝数据表已到账，接口和客户端法宝数据未更新</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-19 17:34</td> 
+         <td>Closed</td> 
+         <td>郑乾业</td> 
+         <td>已解决</td> 
+         <td>12-21 11:09</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1481.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1481.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1481.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1480"> <a href="/bug-view-1480.html">1480</a> </td> 
+         <td><span class="severity一般">一般</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="成为会员通知，微信模板消息中登记姓名未显示内容"><span class="confirm1">[已确认] </span><a href="/bug-view-1480.html">成为会员通知，微信模板消息中登记姓名未显示内容</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-19 17:22</td> 
+         <td>Closed</td> 
+         <td>崔灵</td> 
+         <td>已解决</td> 
+         <td>12-21 09:49</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1480.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1480.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1480.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+        <tr class="text-center"> 
+         <td class="bug-closed strong text-left"> <input type="checkbox" name="bugIDList[]" value="1479"> <a href="/bug-view-1479.html">1479</a> </td> 
+         <td><span class="severity严重">严重</span></td> 
+         <td><span class="pri"></span></td> 
+         <td class="text-left" title="不同品牌发展的新会员，扫码页面法宝金额应为动态的"><span class="confirm1">[已确认] </span><a href="/bug-view-1479.html">不同品牌发展的新会员，扫码页面法宝金额应为动态的</a> </td> 
+         <td class="bug-closed">已关闭</td> 
+         <td>刘星</td> 
+         <td>12-19 17:15</td> 
+         <td>Closed</td> 
+         <td>付禄山</td> 
+         <td>已解决</td> 
+         <td>12-21 11:17</td> 
+         <td class="text-right"> <button type="button" class="disabled btn-icon iframe"><i class="icon-bug-confirmBug disabled icon-search" title="确认"></i></button><a href="/bug-assignTo-1479.html?onlybody=yes" target="" class="btn-icon iframe" title="指派"><i class="icon-bug-assignTo icon-hand-right"></i></a><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-resolve disabled icon-ok-sign" title="解决"></i></button><button type="button" class="disabled btn-icon iframe"><i class="icon-bug-close disabled icon-off" title="关闭"></i></button><a href="/bug-edit-1479.html" target="" class="btn-icon " title="编辑"><i class="icon-common-edit icon-pencil"></i></a><a href="/bug-create-13-bugID=1479.html" target="" class="btn-icon " title="复制"><i class="icon-common-copy icon-copy"></i></a> </td> 
+        </tr> 
+       </tbody> 
+       <tfoot> 
+        <tr> 
+         <td colspan="12"> 
+          <div class="table-actions clearfix"> 
+           <div class="btn-group"> 
+            <script>
+$(function()
+{
+    if($('body').data('bindSelectBtn')) return;
+    $('body').data('bindSelectBtn', true);
+    $(document).on('click', '.check-all, .check-inverse', function()
+    {
+        var e = $(this);
+        if(e.closest('.datatable').length) return;
+        scope = e.data('scope');
+        scope = scope ? $('#' + scope) : e.closest('.table');
+        if(!scope.length) scope = e.closest('form');
+        scope.find('input:checkbox').each(e.hasClass('check-inverse') ? function() { $(this).attr("checked", !$(this).attr("checked"));} : function() { $(this).attr("checked", true);});
+    });
+});
+</script>
+            <a class="btn btn-select-all check-all " data-scope="" href="javascript:;">全选</a>
+            <a class="btn btn-select-reverse check-inverse " data-scope="" href="javascript:;">反选</a> 
+           </div> 
+           <div class="btn-group dropup"> 
+            <button type="button" onclick="setFormAction('/bug-batchEdit-13.html')" class="btn">编辑</button> 
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button> 
+            <ul class="dropdown-menu"> 
+             <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchConfirm.html','hiddenwin')">确认</a> </li>
+             <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchClose.html','hiddenwin')">关闭</a> </li>
+             <li class="dropdown-submenu"><a href="javascript:;" target="" id="resolveItem">解决</a> 
+              <ul class="dropdown-menu">
+               <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchResolve-bydesign.html','hiddenwin')">设计如此</a> </li>
+               <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchResolve-external.html','hiddenwin')">外部原因</a> </li>
+               <li class="dropdown-submenu"><a href="javascript:;" target="" id="fixedItem">已解决</a> 
+                <ul class="dropdown-menu">
+                 <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchResolve-fixed-trunk.html','hiddenwin')">Trunk</a> </li>
+                 <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchResolve-fixed-69.html','hiddenwin')"> AndroidV1.6</a> </li>
+                 <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchResolve-fixed-21.html','hiddenwin')">发布会签到版本</a> </li>
+                </ul></li>
+               <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchResolve-notrepro.html','hiddenwin')">无法重现</a> </li>
+               <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchResolve-postponed.html','hiddenwin')">延期处理</a> </li>
+               <li><a href="javascript:;" target="" onclick="setFormAction('/bug-batchResolve-willnotfix.html','hiddenwin')">不予解决</a> </li>
+              </ul></li>
+             <select name="assignedTo" id="assignedTo" class="hidden"> <option value="" selected></option> <option value="admin">admin</option> <option value="aiyan">张爱燕</option> <option value="allen">陈立乔</option> <option value="amy">冯奕爱</option> <option value="arthas">曾梓麟</option> <option value="Bisharp">刘必晓</option> <option value="black">萧沛健</option> <option value="cain">赖锦鹏</option> <option value="celine.tang">唐田</option> <option value="cent.chen">陈钊</option> <option value="chanven">郭晨</option> <option value="chenglin">林志成</option> <option value="chengshihao">程世豪</option> <option value="chengyan">方成艳</option> <option value="chenjiaxin">陈嘉鑫</option> <option value="cherish.lin">林小连</option> <option value="chuixu">林垂旭</option> <option value="coco">王利娟</option> <option value="cuiling">崔灵</option> <option value="daisy">刘子兰</option> <option value="danny">吴海涛</option> <option value="demi">邓雪丹</option> <option value="dengrunquan">邓润权</option> <option value="echo">罗超</option> <option value="fangrong.pan">潘芳蓉</option> <option value="fengbin">冯彬</option> <option value="fengzhihai">冯志海</option> <option value="francis.dong">董晓锋</option> <option value="fulushan">付禄山</option> <option value="guohao.li">李国灏</option> <option value="guohouchang">郭厚昌</option> <option value="heqiang">何强</option> <option value="huangcanlong">黄灿龙</option> <option value="huangcifei">黄赐飞</option> <option value="huanghaoying">黄浩英</option> <option value="huangjiaxin">黄家欣</option> <option value="huangping">黄萍</option> <option value="huangsuling">黄素玲</option> <option value="huangwenjie">黄文杰</option> <option value="jan">陈静</option> <option value="jax">蓝东阳</option> <option value="jia.tian">田佳</option> <option value="jianan">黄健安</option> <option value="jiangyichao">江毅超</option> <option value="jiangyong">蒋勇</option> <option value="jinpeng.bu">卜进鹏</option> <option value="jiongzhan.zhang">张炯瞻</option> <option value="johnny.zheng">郑义</option> <option value="juanita">郭苏娟</option> <option value="keji">植柯纪</option> <option value="kenny">吴若</option> <option value="kindy">全境娣</option> <option value="king.xiao">肖鑫</option> <option value="laijinghang">赖劲航</option> <option value="lianyuan.liu">刘练源</option> <option value="lianzhanpeng">连展鹏</option> <option value="lingjinwang">凌金旺</option> <option value="linyy">林育颖</option> <option value="linzijie">林子杰</option> <option value="liping">黎平</option> <option value="liuxing">刘星</option> <option value="liuyongquan">刘永泉</option> <option value="liuzhengdong">刘正东</option> <option value="liwentao">李文韬</option> <option value="lml">李茂林</option> <option value="lok_le">乐舒原</option> <option value="longhaifei">龙海飞</option> <option value="longshaota">龙韶塔</option> <option value="luowentao">罗文韬</option> <option value="luozhiming">罗志明</option> <option value="luxiaocong">陆晓聪</option> <option value="majunjie">马俊杰</option> <option value="meizhan">梅展</option> <option value="michael">陈俊飞</option> <option value="milan.ma">马兰花</option> <option value="minmin.cai">蔡敏敏</option> <option value="mirror.zhou">周静之</option> <option value="mochunrun">莫纯润</option> <option value="Nick.luo">罗军裕</option> <option value="pablo">温波</option> <option value="penghuihuang">彭辉煌</option> <option value="qi.liu">刘旗</option> <option value="qian.zhang">张倩</option> <option value="qiliang">陈其良</option> <option value="qiuyuehua">邱栎桦</option> <option value="ricky">苏国恩</option> <option value="ricky.chen">陈贻全</option> <option value="ruffy">高凌空</option> <option value="sally.hu">胡莎</option> <option value="sam">莫建璋</option> <option value="Seam">方旭</option> <option value="shenson">李胜松</option> <option value="sherry.zhou">周艳芳</option> <option value="shukui.xing">邢树奎</option> <option value="sijia">李思家</option> <option value="spring">刘春旋</option> <option value="sulonglong">苏龙隆</option> <option value="susie.zhang">张晓英</option> <option value="tanguocan">谭国灿</option> <option value="tangweiqiang">汤伟强</option> <option value="tony">张桐</option> <option value="tracy">李长翠</option> <option value="tracy.jiang">江婷</option> <option value="vincent.lin">林畅</option> <option value="vito">龚志</option> <option value="vito.liao">廖志高</option> <option value="walle">王帅杰</option> <option value="wangyi">王毅</option> <option value="wei.zheng">郑伟</option> <option value="weibin">黄伟彬</option> <option value="weichao">魏超</option> <option value="weixian.ye">叶炜贤</option> <option value="wenjie">邱文杰</option> <option value="wesker">陈维榜</option> <option value="wieson">李文虎</option> <option value="windy">李泳洁</option> <option value="wing.he">何颖欣</option> <option value="wuhui.zhu">朱武辉</option> <option value="wujun">吴军</option> <option value="wuqun">吴群</option> <option value="xiaoli.wang">王潇莉</option> <option value="xiaoyi">谢晓怡</option> <option value="xiaqian">夏倩</option> <option value="xiejunlin">谢君临</option> <option value="xiexiao">谢晓</option> <option value="xiezhiping">谢志平</option> <option value="xing.li">李星</option> <option value="xingwan">唐兴万</option> <option value="xinren.ye">叶新任</option> <option value="xuhaonan">徐浩楠</option> <option value="yejunjie">叶俊杰</option> <option value="yella">刘烨</option> <option value="yen">黎艳红</option> <option value="yexinren">叶新任</option> <option value="yezhiwei">叶志威</option> <option value="yingbin">薛映冰</option> <option value="yishan">何益善</option> <option value="yiyi">yiyi.yin</option> <option value="you.peng"> 彭优</option> <option value="yubin.wen">温愉斌</option> <option value="yunqian.jiang">姜云骞</option> <option value="yuwen.zeng">曾育文</option> <option value="zanke.huang">黄赞科</option> <option value="zenglong">曾龙</option> <option value="zhangfan">张帆</option> <option value="zhangwentian">张闻天</option> <option value="zhengchubin">郑楚彬</option> <option value="zhengqianye">郑乾业</option> <option value="zhenhua.chun">淳震华</option> <option value="zhijian.yao">姚智健</option> <option value="zhiqi">范志奇</option> <option value="zhiqiang">赖志强</option> <option value="zhongwenchao">钟文超</option> <option value="zhouping">周平</option> <option value="zhouxi">周熙</option> <option value="zhouyao">周瑶</option> <option value="zhukangli">祝康力</option> <option value="zijian.feng">冯梓健</option> <option value="zoryee.yu">余子煌</option> <option value="closed">Closed</option> </select> 
+             <li class="dropdown-submenu"><a href="javascript::" target="id=&quot;assignItem&quot;">指派给</a> 
+              <ul class="dropdown-menu assign-menu with-search">
+               <li class="option" data-key="admin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;admin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">admin</a> </li>
+               <li class="option" data-key="aiyan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;aiyan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">张爱燕</a> </li>
+               <li class="option" data-key="allen"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;allen&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陈立乔</a> </li>
+               <li class="option" data-key="amy"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;amy&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">冯奕爱</a> </li>
+               <li class="option" data-key="arthas"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;arthas&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">曾梓麟</a> </li>
+               <li class="option" data-key="Bisharp"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;Bisharp&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘必晓</a> </li>
+               <li class="option" data-key="black"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;black&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">萧沛健</a> </li>
+               <li class="option" data-key="cain"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;cain&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">赖锦鹏</a> </li>
+               <li class="option" data-key="celine.tang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;celine.tang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">唐田</a> </li>
+               <li class="option" data-key="cent.chen"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;cent.chen&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陈钊</a> </li>
+               <li class="option" data-key="chanven"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;chanven&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">郭晨</a> </li>
+               <li class="option" data-key="chenglin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;chenglin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">林志成</a> </li>
+               <li class="option" data-key="chengshihao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;chengshihao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">程世豪</a> </li>
+               <li class="option" data-key="chengyan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;chengyan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">方成艳</a> </li>
+               <li class="option" data-key="chenjiaxin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;chenjiaxin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陈嘉鑫</a> </li>
+               <li class="option" data-key="cherish.lin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;cherish.lin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">林小连</a> </li>
+               <li class="option" data-key="chuixu"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;chuixu&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">林垂旭</a> </li>
+               <li class="option" data-key="coco"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;coco&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">王利娟</a> </li>
+               <li class="option" data-key="cuiling"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;cuiling&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">崔灵</a> </li>
+               <li class="option" data-key="daisy"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;daisy&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘子兰</a> </li>
+               <li class="option" data-key="danny"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;danny&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">吴海涛</a> </li>
+               <li class="option" data-key="demi"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;demi&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">邓雪丹</a> </li>
+               <li class="option" data-key="dengrunquan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;dengrunquan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">邓润权</a> </li>
+               <li class="option" data-key="echo"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;echo&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">罗超</a> </li>
+               <li class="option" data-key="fangrong.pan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;fangrong.pan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">潘芳蓉</a> </li>
+               <li class="option" data-key="fengbin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;fengbin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">冯彬</a> </li>
+               <li class="option" data-key="fengzhihai"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;fengzhihai&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">冯志海</a> </li>
+               <li class="option" data-key="francis.dong"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;francis.dong&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">董晓锋</a> </li>
+               <li class="option" data-key="fulushan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;fulushan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">付禄山</a> </li>
+               <li class="option" data-key="guohao.li"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;guohao.li&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李国灏</a> </li>
+               <li class="option" data-key="guohouchang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;guohouchang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">郭厚昌</a> </li>
+               <li class="option" data-key="heqiang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;heqiang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">何强</a> </li>
+               <li class="option" data-key="huangcanlong"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;huangcanlong&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄灿龙</a> </li>
+               <li class="option" data-key="huangcifei"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;huangcifei&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄赐飞</a> </li>
+               <li class="option" data-key="huanghaoying"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;huanghaoying&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄浩英</a> </li>
+               <li class="option" data-key="huangjiaxin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;huangjiaxin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄家欣</a> </li>
+               <li class="option" data-key="huangping"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;huangping&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄萍</a> </li>
+               <li class="option" data-key="huangsuling"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;huangsuling&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄素玲</a> </li>
+               <li class="option" data-key="huangwenjie"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;huangwenjie&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄文杰</a> </li>
+               <li class="option" data-key="jan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;jan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陈静</a> </li>
+               <li class="option" data-key="jax"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;jax&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">蓝东阳</a> </li>
+               <li class="option" data-key="jia.tian"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;jia.tian&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">田佳</a> </li>
+               <li class="option" data-key="jianan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;jianan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄健安</a> </li>
+               <li class="option" data-key="jiangyichao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;jiangyichao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">江毅超</a> </li>
+               <li class="option" data-key="jiangyong"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;jiangyong&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">蒋勇</a> </li>
+               <li class="option" data-key="jinpeng.bu"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;jinpeng.bu&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">卜进鹏</a> </li>
+               <li class="option" data-key="jiongzhan.zhang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;jiongzhan.zhang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">张炯瞻</a> </li>
+               <li class="option" data-key="johnny.zheng"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;johnny.zheng&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">郑义</a> </li>
+               <li class="option" data-key="juanita"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;juanita&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">郭苏娟</a> </li>
+               <li class="option" data-key="keji"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;keji&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">植柯纪</a> </li>
+               <li class="option" data-key="kenny"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;kenny&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">吴若</a> </li>
+               <li class="option" data-key="kindy"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;kindy&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">全境娣</a> </li>
+               <li class="option" data-key="king.xiao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;king.xiao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">肖鑫</a> </li>
+               <li class="option" data-key="laijinghang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;laijinghang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">赖劲航</a> </li>
+               <li class="option" data-key="lianyuan.liu"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;lianyuan.liu&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘练源</a> </li>
+               <li class="option" data-key="lianzhanpeng"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;lianzhanpeng&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">连展鹏</a> </li>
+               <li class="option" data-key="lingjinwang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;lingjinwang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">凌金旺</a> </li>
+               <li class="option" data-key="linyy"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;linyy&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">林育颖</a> </li>
+               <li class="option" data-key="linzijie"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;linzijie&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">林子杰</a> </li>
+               <li class="option" data-key="liping"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;liping&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黎平</a> </li>
+               <li class="option" data-key="liuxing"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;liuxing&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘星</a> </li>
+               <li class="option" data-key="liuyongquan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;liuyongquan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘永泉</a> </li>
+               <li class="option" data-key="liuzhengdong"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;liuzhengdong&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘正东</a> </li>
+               <li class="option" data-key="liwentao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;liwentao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李文韬</a> </li>
+               <li class="option" data-key="lml"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;lml&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李茂林</a> </li>
+               <li class="option" data-key="lok_le"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;lok_le&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">乐舒原</a> </li>
+               <li class="option" data-key="longhaifei"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;longhaifei&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">龙海飞</a> </li>
+               <li class="option" data-key="longshaota"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;longshaota&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">龙韶塔</a> </li>
+               <li class="option" data-key="luowentao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;luowentao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">罗文韬</a> </li>
+               <li class="option" data-key="luozhiming"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;luozhiming&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">罗志明</a> </li>
+               <li class="option" data-key="luxiaocong"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;luxiaocong&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陆晓聪</a> </li>
+               <li class="option" data-key="majunjie"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;majunjie&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">马俊杰</a> </li>
+               <li class="option" data-key="meizhan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;meizhan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">梅展</a> </li>
+               <li class="option" data-key="michael"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;michael&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陈俊飞</a> </li>
+               <li class="option" data-key="milan.ma"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;milan.ma&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">马兰花</a> </li>
+               <li class="option" data-key="minmin.cai"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;minmin.cai&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">蔡敏敏</a> </li>
+               <li class="option" data-key="mirror.zhou"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;mirror.zhou&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">周静之</a> </li>
+               <li class="option" data-key="mochunrun"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;mochunrun&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">莫纯润</a> </li>
+               <li class="option" data-key="Nick.luo"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;Nick.luo&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">罗军裕</a> </li>
+               <li class="option" data-key="pablo"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;pablo&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">温波</a> </li>
+               <li class="option" data-key="penghuihuang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;penghuihuang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">彭辉煌</a> </li>
+               <li class="option" data-key="qi.liu"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;qi.liu&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘旗</a> </li>
+               <li class="option" data-key="qian.zhang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;qian.zhang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">张倩</a> </li>
+               <li class="option" data-key="qiliang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;qiliang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陈其良</a> </li>
+               <li class="option" data-key="qiuyuehua"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;qiuyuehua&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">邱栎桦</a> </li>
+               <li class="option" data-key="ricky"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;ricky&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">苏国恩</a> </li>
+               <li class="option" data-key="ricky.chen"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;ricky.chen&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陈贻全</a> </li>
+               <li class="option" data-key="ruffy"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;ruffy&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">高凌空</a> </li>
+               <li class="option" data-key="sally.hu"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;sally.hu&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">胡莎</a> </li>
+               <li class="option" data-key="sam"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;sam&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">莫建璋</a> </li>
+               <li class="option" data-key="Seam"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;Seam&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">方旭</a> </li>
+               <li class="option" data-key="shenson"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;shenson&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李胜松</a> </li>
+               <li class="option" data-key="sherry.zhou"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;sherry.zhou&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">周艳芳</a> </li>
+               <li class="option" data-key="shukui.xing"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;shukui.xing&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">邢树奎</a> </li>
+               <li class="option" data-key="sijia"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;sijia&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李思家</a> </li>
+               <li class="option" data-key="spring"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;spring&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘春旋</a> </li>
+               <li class="option" data-key="sulonglong"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;sulonglong&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">苏龙隆</a> </li>
+               <li class="option" data-key="susie.zhang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;susie.zhang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">张晓英</a> </li>
+               <li class="option" data-key="tanguocan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;tanguocan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">谭国灿</a> </li>
+               <li class="option" data-key="tangweiqiang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;tangweiqiang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">汤伟强</a> </li>
+               <li class="option" data-key="tony"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;tony&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">张桐</a> </li>
+               <li class="option" data-key="tracy"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;tracy&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李长翠</a> </li>
+               <li class="option" data-key="tracy.jiang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;tracy.jiang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">江婷</a> </li>
+               <li class="option" data-key="vincent.lin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;vincent.lin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">林畅</a> </li>
+               <li class="option" data-key="vito"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;vito&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">龚志</a> </li>
+               <li class="option" data-key="vito.liao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;vito.liao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">廖志高</a> </li>
+               <li class="option" data-key="walle"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;walle&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">王帅杰</a> </li>
+               <li class="option" data-key="wangyi"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wangyi&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">王毅</a> </li>
+               <li class="option" data-key="wei.zheng"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wei.zheng&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">郑伟</a> </li>
+               <li class="option" data-key="weibin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;weibin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄伟彬</a> </li>
+               <li class="option" data-key="weichao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;weichao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">魏超</a> </li>
+               <li class="option" data-key="weixian.ye"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;weixian.ye&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">叶炜贤</a> </li>
+               <li class="option" data-key="wenjie"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wenjie&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">邱文杰</a> </li>
+               <li class="option" data-key="wesker"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wesker&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">陈维榜</a> </li>
+               <li class="option" data-key="wieson"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wieson&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李文虎</a> </li>
+               <li class="option" data-key="windy"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;windy&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李泳洁</a> </li>
+               <li class="option" data-key="wing.he"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wing.he&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">何颖欣</a> </li>
+               <li class="option" data-key="wuhui.zhu"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wuhui.zhu&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">朱武辉</a> </li>
+               <li class="option" data-key="wujun"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wujun&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">吴军</a> </li>
+               <li class="option" data-key="wuqun"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;wuqun&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">吴群</a> </li>
+               <li class="option" data-key="xiaoli.wang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xiaoli.wang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">王潇莉</a> </li>
+               <li class="option" data-key="xiaoyi"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xiaoyi&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">谢晓怡</a> </li>
+               <li class="option" data-key="xiaqian"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xiaqian&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">夏倩</a> </li>
+               <li class="option" data-key="xiejunlin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xiejunlin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">谢君临</a> </li>
+               <li class="option" data-key="xiexiao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xiexiao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">谢晓</a> </li>
+               <li class="option" data-key="xiezhiping"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xiezhiping&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">谢志平</a> </li>
+               <li class="option" data-key="xing.li"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xing.li&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">李星</a> </li>
+               <li class="option" data-key="xingwan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xingwan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">唐兴万</a> </li>
+               <li class="option" data-key="xinren.ye"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xinren.ye&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">叶新任</a> </li>
+               <li class="option" data-key="xuhaonan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;xuhaonan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">徐浩楠</a> </li>
+               <li class="option" data-key="yejunjie"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yejunjie&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">叶俊杰</a> </li>
+               <li class="option" data-key="yella"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yella&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">刘烨</a> </li>
+               <li class="option" data-key="yen"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yen&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黎艳红</a> </li>
+               <li class="option" data-key="yexinren"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yexinren&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">叶新任</a> </li>
+               <li class="option" data-key="yezhiwei"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yezhiwei&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">叶志威</a> </li>
+               <li class="option" data-key="yingbin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yingbin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">薛映冰</a> </li>
+               <li class="option" data-key="yishan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yishan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">何益善</a> </li>
+               <li class="option" data-key="yiyi"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yiyi&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">yiyi.yin</a> </li>
+               <li class="option" data-key="you.peng"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;you.peng&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target=""> 彭优</a> </li>
+               <li class="option" data-key="yubin.wen"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yubin.wen&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">温愉斌</a> </li>
+               <li class="option" data-key="yunqian.jiang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yunqian.jiang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">姜云骞</a> </li>
+               <li class="option" data-key="yuwen.zeng"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;yuwen.zeng&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">曾育文</a> </li>
+               <li class="option" data-key="zanke.huang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zanke.huang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">黄赞科</a> </li>
+               <li class="option" data-key="zenglong"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zenglong&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">曾龙</a> </li>
+               <li class="option" data-key="zhangfan"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhangfan&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">张帆</a> </li>
+               <li class="option" data-key="zhangwentian"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhangwentian&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">张闻天</a> </li>
+               <li class="option" data-key="zhengchubin"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhengchubin&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">郑楚彬</a> </li>
+               <li class="option" data-key="zhengqianye"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhengqianye&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">郑乾业</a> </li>
+               <li class="option" data-key="zhenhua.chun"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhenhua.chun&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">淳震华</a> </li>
+               <li class="option" data-key="zhijian.yao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhijian.yao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">姚智健</a> </li>
+               <li class="option" data-key="zhiqi"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhiqi&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">范志奇</a> </li>
+               <li class="option" data-key="zhiqiang"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhiqiang&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">赖志强</a> </li>
+               <li class="option" data-key="zhongwenchao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhongwenchao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">钟文超</a> </li>
+               <li class="option" data-key="zhouping"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhouping&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">周平</a> </li>
+               <li class="option" data-key="zhouxi"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhouxi&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">周熙</a> </li>
+               <li class="option" data-key="zhouyao"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhouyao&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">周瑶</a> </li>
+               <li class="option" data-key="zhukangli"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zhukangli&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">祝康力</a> </li>
+               <li class="option" data-key="zijian.feng"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zijian.feng&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">冯梓健</a> </li>
+               <li class="option" data-key="zoryee.yu"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;zoryee.yu&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">余子煌</a> </li>
+               <li class="option" data-key="closed"><a href="javascript:$(&quot;.table-actions #assignedTo&quot;).val(&quot;closed&quot;);setFormAction(&quot;/bug-batchAssignTo-13-product.html&quot;)" target="">Closed</a> </li>
+               <li class="assign-search">
+                <div class="input-group input-group-sm">
+                 <input type="text" class="form-control" placeholder="">
+                 <span class="input-group-addon"><i class="icon-search"></i></span>
+                </div></li>
+              </ul></li> 
+            </ul> 
+           </div> 
+          </div> 
+          <div class="text-right">
+           <div style="float:right; clear:none;" class="pager">
+            共 
+            <strong>52</strong> 条记录，
+            <div class="dropdown dropup">
+             <a href="javascript:;" data-toggle="dropdown" id="_recPerPage" data-value="20">每页 <strong>20</strong> 条<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 5)">5</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 10)">10</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 15)">15</a></li>
+              <li class="active"><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 20)">20</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 25)">25</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 30)">30</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 35)">35</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 40)">40</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 45)">45</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 50)">50</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 100)">100</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 200)">200</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 500)">500</a></li>
+              <li><a href="javascript:submitPage(&quot;changeRecPerPage&quot;, 1000)">1000</a></li>
+             </ul>
+            </div> 
+            <strong>1/3</strong> &nbsp; 
+            <i class="icon-step-backward" title="首页"></i> 
+            <i class="icon-play icon-rotate-180" title="上一页"></i> 
+            <a href="/bug-browse-13-byModule-125--52-20-2.html"><i class="icon-play" title="下一页"></i></a> 
+            <a href="/bug-browse-13-byModule-125--52-20-3.html"><i class="icon-step-forward" title="末页"></i></a> 
+            <input type="hidden" id="_recTotal" value="52"> 
+            <input type="hidden" id="_pageTotal" value="3"> 
+            <input type="text" id="_pageID" value="1" style="text-align:center;width:30px;" class="form-control"> 
+            <input type="button" id="goto" value="GO!" onclick="submitPage(&quot;changePageID&quot;);" class="btn"> 
+            <script>
+        vars = 'productID=13&browseType=byModule&param=125&orderBy=&recTotal=_recTotal_&recPerPage=_recPerPage_&pageID=_pageID_';
+        pageCookie = 'pagerBugBrowse';
+        function submitPage(mode, perPage)
+        {
+            pageTotal  = parseInt(document.getElementById('_pageTotal').value);
+            pageID     = document.getElementById('_pageID').value;
+            recPerPage = document.getElementById('_recPerPage').getAttribute('data-value');
+            recTotal   = document.getElementById('_recTotal').value;
+            if(mode == 'changePageID')
+            {
+                if(pageID > pageTotal) pageID = pageTotal;
+                if(pageID < 1) pageID = 1;
+            }
+            else if(mode == 'changeRecPerPage')
+            {
+                recPerPage = perPage;
+                pageID = 1;
+            }
+            $.cookie(pageCookie, recPerPage, {expires:config.cookieLife, path:config.webRoot});
+
+            vars = vars.replace('_recTotal_', recTotal)
+            vars = vars.replace('_recPerPage_', recPerPage)
+            vars = vars.replace('_pageID_', pageID);
+            location.href=createLink('bug', 'browse', vars);
+        }
+        </script>
+           </div>
+          </div> </td> 
+        </tr> 
+       </tfoot> 
+      </table> 
+     </form> 
+    </div> 
+   </div> 
+   <script>setTreeBox()</script> 
+   <div id="divider"></div> 
+   <iframe frameborder="0" name="hiddenwin" id="hiddenwin" scrolling="no" class="debugwin hidden"></iframe> 
+  </div>
+  <div id="footer"> 
+   <div id="crumbs"> 
+    <a href="/my/">禅道</a> &nbsp;
+    <i class="icon-angle-right"></i>&nbsp;
+    <a href="/qa/">测试</a> &nbsp;
+    <i class="icon-angle-right"></i>&nbsp;
+    <a href="/bug-browse-13.html">O2O会员通</a> &nbsp;
+    <i class="icon-angle-right"></i>&nbsp;Bug 
+   </div> 
+   <div id="poweredby"> 
+    <a href="http://www.zentao.net" target="_blank" class="text-primary"><i class="icon-zentao"></i> 禅道7.2.4</a> &nbsp; 
+    <a href="http://api.zentao.net/goto.php?item=proversion&amp;from=footer" target="_blank" id="proLink" class="text-important"><i class="text-danger icon-reply icon-rotate-90"></i> 专业版！</a> &nbsp; 
+    <a href="javascript:;" target="" class="qrCode " id="qrcodeBtn" title="手机访问"><i class="icon-qrcode"></i></a> 
+    <div class="popover top" id="qrcodePopover">
+     <div class="arrow"></div>
+     <h3 class="popover-title">手机访问</h3>
+     <div class="popover-content">
+      <img src="javascript:;">
+     </div>
+    </div>
+    <script>$(function(){$("#qrcodeBtn").click(function(){$("#qrcodePopover").toggleClass("show");}); $("#wrap").click(function(){$("#qrcodePopover").removeClass("show");});});</script>
+    <script>$(function(){$("#qrcodeBtn").hover(function(){$(".popover-content img").attr("src", "/misc-qrCode.html");});});</script> 
+   </div> 
+  </div> 
+  <script>onlybody = "no"
+</script> 
+  <script>$(function() 
+{
+    setModal4List('iframe', 'bugList');
+
+    if(typeof page == 'undefined') page = '';
+    if(page == 'create')
+    {
+        productID  = $('#product').val();
+        moduleID   = $('#module').val();
+        assignedto = $('#assignedTo').val();
+        changeProductConfirmed = true;
+        oldStoryID             = 0;
+        oldProjectID           = 0;
+        oldOpenedBuild         = '';
+        oldTaskID              = 0;
+        if(!assignedto) setAssignedTo(moduleID, productID);
+        notice();
+    }
+
+    if(page == 'create' || page == 'edit' || page == 'assignedto' || page == 'confirmbug')
+    {
+        $("#story, #task, #mailto").chosen(defaultChosenOptions);
+    }
+});
+
+/**
+ * Load all fields.
+ * 
+ * @param  int $productID 
+ * @access public
+ * @return void
+ */
+function loadAll(productID)
+{
+    if(page == 'create') setAssignedTo();
+
+    if(!changeProductConfirmed)
+    {
+        firstChoice = confirm(confirmChangeProduct);
+        changeProductConfirmed = true;    // Only notice the user one time.
+    }
+    if(changeProductConfirmed || firstChoice)
+    {
+        $('#taskIdBox').innerHTML = '<select id="task"></select>';  // Reset the task.
+        $('#task').chosen(defaultChosenOptions);
+        loadProductModules(productID); 
+        loadProductProjects(productID); 
+        loadProductBuilds(productID);
+        loadProductplans(productID);
+        loadProductStories(productID);
+    }
+}
+
+/**
+ * Load product's modules.
+ * 
+ * @param  int    $productID 
+ * @access public
+ * @return void
+ */
+function loadProductModules(productID)
+{
+    link = createLink('tree', 'ajaxGetOptionMenu', 'productID=' + productID + '&viewtype=bug&rootModuleID=0&returnType=html&needManage=true');
+    $('#moduleIdBox').load(link, function(){$(this).find('select').chosen(defaultChosenOptions)});
+}
+
+/**
+ * Load product stories 
+ * 
+ * @param  int    $productID 
+ * @access public
+ * @return void
+ */
+function loadProductStories(productID)
+{
+    link = createLink('story', 'ajaxGetProductStories', 'productID=' + productID + '&moduleId=0&storyID=' + oldStoryID);
+    $('#storyIdBox').load(link, function(){$('#story').chosen(defaultChosenOptions);});
+}
+
+/**
+ * Load projects of product. 
+ * 
+ * @param  int    $productID 
+ * @access public
+ * @return void
+ */
+function loadProductProjects(productID)
+{
+    link = createLink('product', 'ajaxGetProjects', 'productID=' + productID + '&projectID=' + oldProjectID);
+    $('#projectIdBox').load(link, function(){$(this).find('select').chosen(defaultChosenOptions)});
+}
+
+/**
+ * Load product plans.
+ * 
+ * @param  productID $productID 
+ * @access public
+ * @return void
+ */
+function loadProductplans(productID)
+{
+    link = createLink('productplan', 'ajaxGetProductplans', 'productID=' + productID);
+    $('#planIdBox').load(link, function(){$(this).find('select').chosen(defaultChosenOptions)});
+}
+
+/**
+ * Load product builds. 
+ * 
+ * @param  productID $productID 
+ * @access public
+ * @return void
+ */
+function loadProductBuilds(productID)
+{
+    link = createLink('build', 'ajaxGetProductBuilds', 'productID=' + productID + '&varName=openedBuild&build=' + oldOpenedBuild);
+
+    if(page == 'create')
+    {
+        $('#buildBox').load(link, function(){ notice(); $('#openedBuild').chosen(defaultChosenOptions);});
+    }
+    else
+    {
+        $('#openedBuildBox').load(link, function(){$(this).find('select').chosen(defaultChosenOptions)});
+        link = createLink('build', 'ajaxGetProductBuilds', 'productID=' + productID + '&varName=resolvedBuild&build=' + oldResolvedBuild);
+        $('#resolvedBuildBox').load(link, function(){$(this).find('select').chosen(defaultChosenOptions)});
+    }
+}
+
+/**
+ * Load project related bugs and tasks.
+ * 
+ * @param  int    $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectRelated(projectID)
+{
+    if(projectID)
+    {
+        loadProjectTasks(projectID);
+        loadProjectStories(projectID);
+        loadProjectBuilds(projectID);
+        loadAssignedTo(projectID);
+    }
+    else
+    {
+        $('#taskIdBox').innerHTML = '<select id="task"></select>';  // Reset the task.
+        loadProductStories($('#product').val());
+        loadProductBuilds($('#product').val());
+    }
+}
+
+/**
+ * Load project tasks.
+ * 
+ * @param  projectID $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectTasks(projectID)
+{
+    link = createLink('task', 'ajaxGetProjectTasks', 'projectID=' + projectID + '&taskID=' + oldTaskID);
+    $('#taskIdBox').load(link, function(){$('#task').chosen(defaultChosenOptions);});
+}
+
+/**
+ * Load project stories.
+ * 
+ * @param  projectID $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectStories(projectID)
+{
+    link = createLink('story', 'ajaxGetProjectStories', 'projectID=' + projectID + '&productID=' + $('#product').val() + '&moduleID=0&storyID=' + oldStoryID);
+    $('#storyIdBox').load(link, function(){$('#story').chosen(defaultChosenOptions);});
+}
+
+/**
+ * Load builds of a project.
+ * 
+ * @param  int      $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectBuilds(projectID)
+{
+    productID = $('#product').val();
+    if(page == 'create') oldOpenedBuild = $('#openedBuild').val() ? $('#openedBuild').val() : 0;
+
+    if(page == 'create')
+    {
+        link = createLink('build', 'ajaxGetProjectBuilds', 'projectID=' + projectID + '&productID=' + productID + '&varName=openedBuild&build=' + oldOpenedBuild + "&index=0&needCreate=true");
+        $('#buildBox').load(link, function(){ notice(); $('#openedBuild').chosen(defaultChosenOptions);});
+    }
+    else
+    {
+        link = createLink('build', 'ajaxGetProjectBuilds', 'projectID=' + projectID + '&productID=' + productID + '&varName=openedBuild&build=' + oldOpenedBuild);
+        $('#openedBuildBox').load(link, function(){$(this).find('select').chosen(defaultChosenOptions)});
+
+        link = createLink('build', 'ajaxGetProjectBuilds', 'projectID=' + projectID + '&productID=' + productID + '&varName=resolvedBuild&build=' + oldResolvedBuild);
+        $('#resolvedBuildBox').load(link, function(){$(this).find('select').chosen(defaultChosenOptions)});
+    }
+}
+
+/**
+ * Set story field.
+ * 
+ * @param  moduleID $moduleID 
+ * @param  productID $productID 
+ * @access public
+ * @return void
+ */
+function setStories(moduleID, productID)
+{
+    link = createLink('story', 'ajaxGetProductStories', 'productID=' + productID + '&moduleID=' + moduleID);
+    $.get(link, function(stories)
+    {
+        if(!stories) stories = '<select id="story" name="story" class="form-control"></select>';
+        $('#story').replaceWith(stories);
+        $('#story_chosen').remove();
+        $("#story").chosen(defaultChosenOptions);
+    });
+}
+
+/**
+ * notice for create build.
+ * 
+ * @access public
+ * @return void
+ */
+function notice()
+{
+    $('#buildBoxActions').empty();
+    if($('#openedBuild').find('option').length <= 1) 
+    {
+        var html = '';
+        if($('#project').val() == '')
+        {
+            html += '<a href="' + createLink('release', 'create', 'productID=' + $('#product').val()) + '" target="_blank">' + createRelease + '</a> ';
+            html += '<a href="javascript:loadProductBuilds(' + $('#product').val() + ')">' + refresh + '</a>';
+        }
+        else
+        {
+            html += '<a href="' + createLink('build', 'create','projectID=' + $('#project').val()) + '" target="_blank">' + createBuild + '</a> ';
+            html += '<a href="javascript:loadProjectBuilds(' + $('#project').val() + ')">' + refresh + '</a>';
+        }
+        var $bba = $('#buildBoxActions');
+        if($bba.length)
+        {
+            $bba.html(html);
+        }
+        else
+        {
+            if($('#buildBox').parents('tr').find('td').size() > 1)
+            {
+                $('#buildBox').parents('td').next().attr('id', 'buildBoxActions');
+                $('#buildBox').parents('td').next().html(html);
+            }
+            else
+            {
+                html = "<td id='buildBoxActions'>" + html + '</td>';
+                $('#buildBox').parents('td').after(html);
+            }
+        }
+    }
+}
+$(document).ready(function()
+{
+    $('#' + browseType + 'Tab').addClass('active'); 
+    $('#module' + moduleID).addClass('active'); 
+    if(browseType == 'bysearch') ajaxGetSearchForm();
+
+    $('.assign-search').click(function(e)
+    {
+        e.stopPropagation();
+        return false;
+    }).on('keyup change paste', 'input', function()
+    {
+        var val = $(this).val().toLowerCase();
+        if(val == '') return $('.assign-menu > .option').removeClass('hide');
+        $('.assign-menu > .option').each(function()
+        {
+            var $option = $(this);
+            $option.toggleClass('hide', $option.text().toString().toLowerCase().indexOf(val) < 0 && $option.data('key').toString().toLowerCase().indexOf(val) < 0);
+        });
+    });
+});
+
+</script>   
+ </body>
+</html>
